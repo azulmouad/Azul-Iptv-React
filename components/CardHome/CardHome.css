@@ -1,0 +1,28 @@
+
+
+.card-home{
+    background-color: var( --secondary-color);
+    flex-basis: 100%;
+    border-radius: 10px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    text-align: center; 
+    
+}
+.card-home:hover{
+    background-color: var( --accent-color);
+}
+
+.card-home-icon{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.card-home h3{
+    font-size: 35px;
+}

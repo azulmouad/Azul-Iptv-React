@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    --primary-color: rgb(16, 16, 40);
+    --secondary-color: rgb(21, 21, 49);
+    --accent-color: rgb(41, 62, 159);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+  
+}
+
+body{ 
+    background: var(--primary-color);
+    width: 100vw;
+    height: 100vh;
+
+}
+
+
+/* Home Page */
+
+.home{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card-homes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 0 5%;
+}
+
+.footer-home{
+    text-align: center;
+    padding: 15px;
+}
+
+/*  */
+.live{
+    display: flex;
+    overflow-y: hidden;
+    height: 92vh;
+}
+.categories{
+    height: 100%;
+    overflow: scroll;  
+    padding-bottom: 10px; 
+    border-radius: 5px;
+}
+
+.list-item{
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    text-align: center;
+}
+.list-item:hover{
+    background-color: var(--secondary-color);
+}
+.category-title h2{
+    width: 250px;
+    background-color: var(--secondary-color);
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}

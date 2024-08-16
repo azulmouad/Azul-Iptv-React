@@ -1,0 +1,18 @@
+
+.info-movie{
+    margin-top: 10px;
+    align-items: center;
+
+}
+.info-movie p{
+    font-weight: 200;
+}
+
+
+.icon-readmore{
+    color: white;
+    margin-right: 10px;
+    fill:red;
+    stroke:green;
+    
+}

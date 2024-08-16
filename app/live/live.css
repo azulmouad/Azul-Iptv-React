@@ -1,0 +1,28 @@
+
+.live-page{
+    width: 100%;
+  
+}
+
+
+
+/* List Categories */
+
+.live hr{
+    border: 1px solid var(--secondary-color);
+}
+ 
+
+
+
+.video{
+    width: 100%;
+    min-width: 400px;
+}
+.card-epg{
+    margin-top: 15px;
+    background-color: var(--secondary-color);
+    overflow: scroll;
+ 
+
+}
