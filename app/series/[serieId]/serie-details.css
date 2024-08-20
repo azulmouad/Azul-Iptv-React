@@ -1,5 +1,5 @@
 
-.movie-page .background{
+.serie-page .background{
     width: 100%;
     height: 100vh;
     object-fit: fill;
@@ -8,7 +8,7 @@
 
  
 
-.movie-page .cover_movie img{
+.serie-page .cover_movie img{
     width: 250px;
     height: 350px;
     border-radius: 10px;
@@ -16,7 +16,7 @@
 
 }
 
-.movie-page .cover_movie{
+.serie-page .cover_movie{
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -25,30 +25,30 @@
 
 
 
-.movie-page .container{
+.serie-page .container{
     position: absolute;
     top: 80px;
     left: 20px;
     display: flex;
 }
 
-.movie-page .container-content{
+.serie-page .container-content{
     margin-left: 20px;
 }
 
-.movie-page .container-info{
+.serie-page .container-info{
     display: flex;
     flex-wrap: wrap;
     gap: 45px;
  
 }
 
-.movie-page .card-watch-trailer{
+.serie-page .card-watch-trailer{
     display: flex;
     gap: 20px;
 }
 
-.movie-page .watch-button{
+.serie-page .watch-button{
     background: linear-gradient(90deg, rgb(21, 21, 49) 0%, rgb(41, 62, 159) 55%);
     padding: 8px 25px;
     border: none;
@@ -59,7 +59,7 @@
     cursor: pointer;
 }
 
-.movie-page .watch-button:hover{
+.serie-page .watch-button:hover{
     background: orange;
     
 }

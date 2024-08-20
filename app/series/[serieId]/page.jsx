@@ -1,5 +1,5 @@
 import InfoMovie from "@components/InfoMovie/InfoMovie";
-import "./movie-details.css";
+import "./serie-details.css";
 import NavBarHome from "@components/NavBar/NavBarHome";
 import StarRating from "@components/Rating/Rating";
 import director_icon from "@/public/assets/director.svg";
@@ -14,7 +14,7 @@ const COVER_IMAGE =
 
 const MovieDetails = () => {
   return (
-    <div className="movie-page">
+    <div className="serie-page">
       <NavBarHome />
       <div
         className="background"
@@ -70,7 +70,7 @@ const MovieDetails = () => {
               title="Plot"
             />
             <div className="card-watch-trailer">
-              <button className="watch-button">Watch Now</button>
+              <button className="watch-button">Seasons</button>
               <button className="watch-button">Trailer</button>
             </div>
           </div>

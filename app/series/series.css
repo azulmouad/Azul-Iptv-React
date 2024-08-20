@@ -1,0 +1,21 @@
+.serie-home{
+    width: 100vw;
+    display: flex;
+    overflow-y: hidden;
+    height: 92vh;
+}
+
+
+.grid-series{
+    width: 80%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    overflow: scroll;
+}
+
+
+ 
+

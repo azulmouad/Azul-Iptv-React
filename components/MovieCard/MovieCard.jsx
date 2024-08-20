@@ -7,9 +7,9 @@ import "./MovieCard.css";
 const COVER_IMAGE =
   "https://wbd.com/wp-content/uploads/2022/06/HOTD_27x40sm-1688x2500.jpg";
 
-const MovieCard = () => {
+const MovieCard = ({ href }) => {
   return (
-    <Link href={"movies/00"}>
+    <Link href={href}>
       <div className="movie-grid-item">
         <img className="cover-movie" src={COVER_IMAGE} alt="film cover" />
         <div className="movie-item-hover">

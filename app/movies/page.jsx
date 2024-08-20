@@ -15,8 +15,8 @@ const MoviesPage = () => {
         <hr />
 
         <div className="grid-movies">
-          <MovieCard />
-          <MovieCard />
+          <MovieCard href="/movies/00" />
+          <MovieCard href="/movies/01" />
         </div>
       </div>
     </div>
