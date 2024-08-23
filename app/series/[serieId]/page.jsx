@@ -8,11 +8,14 @@ import release_icon from "@/public/assets/release_date.svg";
 import duration_icon from "@/public/assets/duration.svg";
 import cast_icon from "@/public/assets/cast.svg";
 import plot_icon from "@/public/assets/plot.svg";
+import Link from "next/link";
 
 const COVER_IMAGE =
   "https://wbd.com/wp-content/uploads/2022/06/HOTD_27x40sm-1688x2500.jpg";
 
-const MovieDetails = () => {
+const SerieDetails = (props) => {
+  const serieId = props.params.serieId;
+
   return (
     <div className="serie-page">
       <NavBarHome />
@@ -70,7 +73,9 @@ const MovieDetails = () => {
               title="Plot"
             />
             <div className="card-watch-trailer">
-              <button className="watch-button">Seasons</button>
+              <Link href={`${serieId}/1`}>
+                <button className="watch-button">Seasons</button>
+              </Link>
               <button className="watch-button">Trailer</button>
             </div>
           </div>
@@ -80,4 +85,4 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails;
+export default SerieDetails;
