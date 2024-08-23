@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import "./login.css";
 
 const loginPage = () => {
@@ -18,7 +19,20 @@ const loginPage = () => {
     setUrl(e.target.value);
   }
 
-  function onLogin() {}
+  async function onLogin() {
+    try {
+      const response = await fetch("/api/login");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  }
 
   return (
     <div className="login">
@@ -50,7 +64,7 @@ const loginPage = () => {
           onChange={onUrl}
         />
 
-        <button onClick={onLogin()}>Login</button>
+        <button onClick={onLogin}>Login</button>
       </div>
     </div>
   );
