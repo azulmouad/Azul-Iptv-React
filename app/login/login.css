@@ -30,7 +30,7 @@
 }
  
 
-.card-inputs button{
+.card-inputs .button-login{
     height: 45px;
     margin-top: 20px;
     background-color: rgba(255, 166, 0, 0.442);
@@ -40,9 +40,14 @@
     font-weight: bold; 
     font-size: 18px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
-.card-inputs button:hover{
+.card-inputs .button-login:hover{
     background-color: orange;
 }
+
+ 
