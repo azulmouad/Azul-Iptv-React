@@ -11,10 +11,10 @@ const ListCaty = ({ title, list, selectCaty, selected }) => {
       <div className="categories">
         {list.map((item) => (
           <ListItem
-            key={item.category_id}
-            title={item.category_name}
-            onClickCaty={() => selectCaty(item.category_id)}
-            isSelected={selected === item.category_id}
+            key={item.id}
+            title={item.name}
+            onClickCaty={() => selectCaty(item.id)}
+            isSelected={selected === item.id}
           />
         ))}
       </div>
