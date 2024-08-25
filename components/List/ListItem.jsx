@@ -1,9 +1,18 @@
+import { orange } from "@mui/material/colors";
 import React from "react";
 
-const ListItem = () => {
+const ListItem = ({ title, onClickCaty, isSelected }) => {
+  //console.log(title, isSelected);
+
   return (
-    <div className="list-item">
-      <p>Channel 1</p>
+    <div className="list-item" onClick={() => onClickCaty()}>
+      <p
+        style={{
+          color: isSelected ? "orange" : null,
+        }}
+      >
+        {title}
+      </p>
     </div>
   );
 };

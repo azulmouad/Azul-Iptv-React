@@ -1,7 +1,7 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-const ListCaty = ({ title }) => {
+const ListCaty = ({ title, list, selectCaty, selected }) => {
   return (
     <div className="list-main-categories">
       <div className="category-title">
@@ -9,38 +9,14 @@ const ListCaty = ({ title }) => {
       </div>
 
       <div className="categories">
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {list.map((item) => (
+          <ListItem
+            key={item.category_id}
+            title={item.category_name}
+            onClickCaty={() => selectCaty(item.category_id)}
+            isSelected={selected === item.category_id}
+          />
+        ))}
       </div>
     </div>
   );

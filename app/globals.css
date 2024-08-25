@@ -58,14 +58,16 @@ body{
 }
 
 .list-item{
-    padding: 10px 0;
-    text-align: center;
+    padding: 10px 10px;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
 }
 .list-item:hover{
     background-color: var(--secondary-color);
 }
+
+
+
 .category-title h2{
     width: 250px;
     background-color: var(--secondary-color);
