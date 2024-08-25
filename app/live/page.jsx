@@ -42,12 +42,6 @@ const Live = () => {
     }
   }, []);
 
-  function pickCaty(id) {
-    console.log("SELECT", id);
-
-    setCaty(id);
-  }
-
   return (
     <div className="live-page">
       <NavBarLive />
@@ -55,7 +49,7 @@ const Live = () => {
         <ListCaty
           title="Categories"
           list={categories}
-          selectCaty={pickCaty}
+          selectCaty={setCaty}
           selected={caty}
         />
         <hr />
