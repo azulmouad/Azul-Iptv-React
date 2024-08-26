@@ -60,10 +60,9 @@ const SeriesPage = () => {
 
   async function fetchSeries(id) {
     console.log("CATY:", id);
-
+    setChannelLoading(true);
     //update state
     setCaty(id);
-    setChannelLoading(true);
 
     const response = await fetch("/api/series/channels", {
       method: "POST",

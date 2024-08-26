@@ -5,12 +5,14 @@ import "./CardEpisod.css";
 const COVER_IMAGE =
   "https://images.pexels.com/photos/268941/pexels-photo-268941.jpeg";
 
-const CardEpisod = () => {
+const CardEpisod = ({ episode, image }) => {
+  // console.log(episode);
+
   return (
     <div className="card-episode">
-      <img src={COVER_IMAGE} alt="Image Episod" />
+      <img src={image} alt="Image Episod" />
       <div className="episod-info">
-        <h4>Episode 1</h4>
+        <h4>{episode.title}</h4>
         <p>
           {" "}
           <Image
@@ -19,7 +21,7 @@ const CardEpisod = () => {
             alt="dercitor"
             width={18}
           />
-          40m 14s
+          {episode.info.duration}
         </p>
       </div>
     </div>

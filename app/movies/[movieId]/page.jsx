@@ -70,7 +70,7 @@ const MovieDetails = (props) => {
       <div className="container">
         <div className="cover_movie">
           <img src={data.image} alt="movie cover" />
-          <StarRating rating={info.rating} />
+          <StarRating rating={info.rating_5based} />
         </div>
         <div className="container-content">
           <h1>{data.title}</h1>

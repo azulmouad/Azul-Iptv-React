@@ -1,21 +1,20 @@
 .card-episode{ 
-    width: 300px;
+    width: 250px;
+    height: 100%;
     display: flex;
     justify-content: center; 
     align-items: center;
     cursor: pointer;
-    padding: 10px; /* Add padding if needed */
+    
     
 
 }
 
-.list-episodes img{
+.card-episode img{
+    width: 150px;
+    height: 100%;
     margin-right: 15px;
-    width: 180px;
-    height: 140px;
-    border-radius: 10px;
-    transition:  0.3s; /* Smooth transition for image scaling */
-
+    border-radius: 5px;
 
 }
 
@@ -34,14 +33,12 @@
  
 }
 
-.card-episode:hover {
-    border: 1px solid orange; /* Add border on hover */
-    color: orange; /* Change text color on hover */
-    border-radius: 10px;
+.card-episode:hover h4{
+    color: orange;  
+    border-radius: 5px;
 }
+ 
 
-.card-episode:hover img {
-    transform: scale(1.05); /* Slightly enlarge image on hover for better visual effect */
-}
+ 
 
  

@@ -7,14 +7,14 @@ export const POST = async (request) => {
     const username = body.username;
     const password = body.password;
     const url = body.url;
-    const movieId = body.movieId;
+    const serieId = body.serieId;
 
     console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_categories&vod_id=${movieId}`
+      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_info&series_id=${serieId}`
     );
 
     var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_categories&vod_id=${movieId}`,
+      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_info&series_id=${serieId}`,
       {
         headers: {
           "Content-Type": "application/json",
