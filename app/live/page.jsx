@@ -8,10 +8,12 @@ import { useEffect, useState } from "react";
 const Live = () => {
   const [userData, setUserData] = useState({});
   //caty
+  const [catyLoading, setCatyLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [caty, setCaty] = useState();
 
   //cahnnels
+  const [channelLoading, setChannelLoading] = useState(false);
   const [channels, setChannels] = useState([]);
   const [channel, setChannel] = useState();
 
@@ -19,6 +21,7 @@ const Live = () => {
     try {
       // console.log(userData);
       setUserData(userData);
+      setCatyLoading(true);
 
       const response = await fetch("/api/live", {
         method: "POST",
@@ -46,6 +49,7 @@ const Live = () => {
     } catch (err) {
       console.log("Error", err);
     }
+    setCatyLoading(false);
   }
   useEffect(() => {
     const storedData = localStorage.getItem("userData");
@@ -58,6 +62,7 @@ const Live = () => {
   async function fetchChannels(id) {
     //update state
     setCaty(id);
+    setChannelLoading(true);
 
     const response = await fetch("/api/live/channels", {
       method: "POST",
@@ -83,7 +88,8 @@ const Live = () => {
     }));
 
     setChannels(reformattedCategories);
-    console.log(data);
+    // console.log(data);
+    setChannelLoading(false);
   }
 
   function playVideo(id) {
@@ -100,6 +106,7 @@ const Live = () => {
           list={categories}
           selectCaty={fetchChannels}
           selected={caty}
+          loading={catyLoading}
         />
         <hr />
         <ListCaty
@@ -107,6 +114,7 @@ const Live = () => {
           list={channels}
           selectCaty={playVideo}
           selected={channel}
+          loading={channelLoading}
         />
         <hr />
         <div className="video">

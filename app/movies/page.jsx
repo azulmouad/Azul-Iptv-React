@@ -5,13 +5,16 @@ import ListCaty from "@/components/List/List";
 import "./movies.css";
 
 import MovieCard from "@/components/MovieCard/MovieCard";
+import LoadingPage from "@components/Loading/Loading";
 
 const MoviesPage = () => {
   const [userData, setUserData] = useState({});
   //caty
+  const [catyLoading, setCatyLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [caty, setCaty] = useState();
   //cahnnels
+  const [channelLoading, setChannelLoading] = useState(false);
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const MoviesPage = () => {
 
   async function fetchCategories(userData) {
     try {
-      // console.log(userData);
+      setCatyLoading(true);
       setUserData(userData);
 
       const response = await fetch("/api/movies", {
@@ -53,11 +56,13 @@ const MoviesPage = () => {
     } catch (err) {
       console.log("Error", err);
     }
+    setCatyLoading(false);
   }
 
   async function fetchMovies(id) {
     //update state
     setCaty(id);
+    setChannelLoading(true);
 
     const response = await fetch("/api/movies/channels", {
       method: "POST",
@@ -78,6 +83,7 @@ const MoviesPage = () => {
     var data = await response.json();
     setChannels(data);
     //console.log(data);
+    setChannelLoading(false);
   }
 
   return (
@@ -90,26 +96,33 @@ const MoviesPage = () => {
             list={categories}
             selectCaty={fetchMovies}
             selected={caty}
+            loading={catyLoading}
           />
         </div>
         <hr />
 
-        <div className="grid-movies">
-          {channels.map((item) => (
-            <MovieCard
-              href={{
-                pathname: `/movies/${item.stream_id}`,
-                query: {
-                  title: item.name,
-                  image: item.stream_icon,
-                },
-              }}
-              key={item.stream_id}
-              title={item.name}
-              image={item.stream_icon}
-            />
-          ))}
-        </div>
+        {channelLoading ? (
+          <div className="loading-box">
+            <LoadingPage />
+          </div>
+        ) : (
+          <div className="grid-movies">
+            {channels.map((item) => (
+              <MovieCard
+                href={{
+                  pathname: `/movies/${item.stream_id}`,
+                  query: {
+                    title: item.name,
+                    image: item.stream_icon,
+                  },
+                }}
+                key={item.stream_id}
+                title={item.name}
+                image={item.stream_icon}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
