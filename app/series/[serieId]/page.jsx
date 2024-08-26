@@ -126,7 +126,9 @@ const SerieDetails = (props) => {
             {Object.keys(episodes).map((seasonName) => (
               <button
                 key={seasonName}
-                className="button-season"
+                className={`button-season ${
+                  season === seasonName ? "selected" : ""
+                }`}
                 onClick={() => setSeason(seasonName)}
               >
                 Season {seasonName}
