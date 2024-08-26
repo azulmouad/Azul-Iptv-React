@@ -63,6 +63,7 @@ const MovieDetails = (props) => {
               ? info.backdrop_path[0]
               : data.image
           }) no-repeat top center`,
+          backgroundSize: "cover",
         }}
       ></div>
 

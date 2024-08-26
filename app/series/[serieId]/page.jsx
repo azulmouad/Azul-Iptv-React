@@ -15,6 +15,7 @@ const COVER_IMAGE =
 
 const SerieDetails = (props) => {
   const serieId = props.params.serieId;
+  var data = props.searchParams;
 
   return (
     <div className="serie-page">
@@ -22,17 +23,18 @@ const SerieDetails = (props) => {
       <div
         className="background"
         style={{
-          background: `linear-gradient(to top, #293E9F, #00000080), url(${COVER_IMAGE}) no-repeat top center`,
+          background: `linear-gradient(to top, #293E9F, #00000080), url(${data.image}) no-repeat top center`,
+          backgroundSize: "cover",
         }}
       ></div>
 
       <div className="container">
         <div className="cover_movie">
-          <img src={COVER_IMAGE} alt="movie cover" />
+          <img src={data.image} alt="movie cover" />
           <StarRating rating={2} />
         </div>
         <div className="container-content">
-          <h1>Hello</h1>
+          <h1>{data.title}</h1>
           <div className="container-info">
             <InfoMovie
               icon={director_icon}
