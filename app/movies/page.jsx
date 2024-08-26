@@ -77,7 +77,7 @@ const MoviesPage = () => {
     }
     var data = await response.json();
     setChannels(data);
-    console.log(data);
+    //console.log(data);
   }
 
   return (
@@ -97,7 +97,13 @@ const MoviesPage = () => {
         <div className="grid-movies">
           {channels.map((item) => (
             <MovieCard
-              href={`/movies/${item.stream_id}`}
+              href={{
+                pathname: `/movies/${item.stream_id}`,
+                query: {
+                  title: item.name,
+                  image: item.stream_icon,
+                },
+              }}
               key={item.stream_id}
               title={item.name}
               image={item.stream_icon}
