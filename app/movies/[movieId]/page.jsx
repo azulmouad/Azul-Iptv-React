@@ -12,7 +12,9 @@ import plot_icon from "@/public/assets/plot.svg";
 const COVER_IMAGE =
   "https://wbd.com/wp-content/uploads/2022/06/HOTD_27x40sm-1688x2500.jpg";
 
-const MovieDetails = () => {
+const MovieDetails = (props) => {
+  var movieId = props.params.movieId;
+
   return (
     <div className="movie-page">
       <NavBarHome />

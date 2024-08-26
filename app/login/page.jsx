@@ -41,13 +41,15 @@ const loginPage = () => {
         });
 
         if (!response.ok) {
+          const errorData = await response.json();
           setOpenSnack(true);
-          setTextSnack(`HTTP error! Status: ${response.status}`);
-          throw new Error(`HTTP error! Status: ${response.status}`);
+          setTextSnack(errorData.message || "Unknown error occurred");
+          throw new Error(errorData.message || "Unknown error occurred");
         }
 
         const data = await response.json();
-        // console.log(data);
+
+        localStorage.removeItem("userData"); // delete old data
         localStorage.setItem("userData", data); // Store data in localStorage
         console.log("User data saved to localStorage.");
 
