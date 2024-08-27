@@ -6,6 +6,7 @@ import "./live.css";
 import { useEffect, useState } from "react";
 
 const Live = () => {
+  //User data
   const [userData, setUserData] = useState({});
   //caty
   const [catyLoading, setCatyLoading] = useState(false);
@@ -16,6 +17,8 @@ const Live = () => {
   const [channelLoading, setChannelLoading] = useState(false);
   const [channels, setChannels] = useState([]);
   const [channel, setChannel] = useState();
+  //Video
+  const [video, setVideo] = useState(null);
 
   async function fetchCategories(userData) {
     try {
@@ -95,6 +98,9 @@ const Live = () => {
   function playVideo(id) {
     setChannel(id);
     //TODO: play the video
+    var url = `http://${userData.server_info.url}:${userData.server_info.port}/${userData.user_info.username}/${userData.user_info.password}/${id}`;
+    console.log("PLAY VIDEO:", url);
+    setVideo(url);
   }
 
   return (
@@ -118,7 +124,7 @@ const Live = () => {
         />
         <hr />
         <div className="video">
-          <VideoPlayer />
+          <VideoPlayer url={video} />
           <div className="card-epg">EPG LIST</div>
         </div>
       </div>
