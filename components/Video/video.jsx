@@ -6,11 +6,12 @@ const VideoPlayer = ({ url }) => {
     return <div className="video-player"></div>;
   }
 
-  console.log("PLAY VIDEO:", `${url}.m3u8`);
+  var videoUrl = `${url}.m3u8`;
+  console.log("PLAY VIDEO:", videoUrl);
   return (
     <div className="video-player">
       <ReactPlayer
-        url={`${url}.m3u8`}
+        url={videoUrl}
         playing={true}
         controls={true}
         width="100%"
