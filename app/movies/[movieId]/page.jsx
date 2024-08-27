@@ -11,8 +11,14 @@ import duration_icon from "@/public/assets/duration.svg";
 import cast_icon from "@/public/assets/cast.svg";
 import plot_icon from "@/public/assets/plot.svg";
 import LoadingPage from "@components/Loading/Loading";
+import Link from "next/link";
 
 const MovieDetails = (props) => {
+  //Video
+  function openVideo() {
+    console.log("PLAY VIDEO");
+  }
+
   const [details, setDetails] = useState();
   var movieId = props.params.movieId;
   var data = props.searchParams;
@@ -112,7 +118,19 @@ const MovieDetails = (props) => {
               title="Plot"
             />
             <div className="card-watch-trailer">
-              <button className="watch-button">Watch Now</button>
+              <button className="watch-button">
+                <Link
+                  href={{
+                    pathname: `/video`,
+                    query: {
+                      videoUrl:
+                        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                    },
+                  }}
+                >
+                  Watch Now
+                </Link>
+              </button>
 
               {info.youtube_trailer && info.youtube_trailer !== "" ? (
                 <button className="watch-button">Trailer</button>
