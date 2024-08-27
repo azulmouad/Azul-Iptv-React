@@ -99,7 +99,7 @@ const Live = () => {
     setChannel(id);
     //TODO: play the video
     var url = `http://${userData.server_info.url}:${userData.server_info.port}/${userData.user_info.username}/${userData.user_info.password}/${id}`;
-    console.log("PLAY VIDEO:", url);
+
     setVideo(url);
   }
 

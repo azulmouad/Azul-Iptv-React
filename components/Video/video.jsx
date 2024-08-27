@@ -5,6 +5,8 @@ const VideoPlayer = ({ url }) => {
   if (url === null) {
     return <div className="video-player"></div>;
   }
+
+  console.log("PLAY VIDEO:", `${url}.m3u8`);
   return (
     <div className="video-player">
       <ReactPlayer
