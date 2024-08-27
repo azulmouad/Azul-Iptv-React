@@ -8,18 +8,16 @@ export const POST = async (request) => {
     const password = body.password;
     const url = body.url;
 
-    console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_categories`
-    );
+    //console.log(`${url}/player_api.php?password=${password}&username=${username}&action=get_series_categories`);
 
-    var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series_categories`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=getSeriesCategories&username=${username}&password=${password}&url=${url}`;
+    console.log(proxyUrl);
+
+    var result = await axios.get(proxyUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     if (result.status == 200) {
       var json = JSON.stringify(result.data);

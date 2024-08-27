@@ -11,7 +11,7 @@ const VideoPlayer = ({ url }) => {
   return (
     <div className="video-player">
       <ReactPlayer
-        url={url}
+        url={`${url}.m3u8`}
         playing={true}
         controls={true}
         width="100%"

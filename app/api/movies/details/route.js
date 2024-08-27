@@ -9,18 +9,16 @@ export const POST = async (request) => {
     const url = body.url;
     const movieId = body.movieId;
 
-    console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_vod_info&vod_id=${movieId}`
-    );
+    // console.log(`${url}/player_api.php?password=${password}&username=${username}&action=get_vod_info&vod_id=${movieId}`);
 
-    var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_vod_info&vod_id=${movieId}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=getVodInfo&username=${username}&password=${password}&url=${url}&movieId=${movieId}`;
+    console.log(proxyUrl);
+
+    var result = await axios.get(proxyUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     if (result.status == 200) {
       var json = JSON.stringify(result.data);

@@ -11,18 +11,16 @@ export const POST = async (request) => {
 
     //http://go-room.life:8080/player_api.php?password=KgfxQnSHpQ&username=53273523957822&action=get_series&category_id=605
 
-    console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series&category_id=${catyId}`
-    );
+    //console.log(`${url}/player_api.php?password=${password}&username=${username}&action=get_series&category_id=${catyId}`);
 
-    var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_series&category_id=${catyId}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=getSeries&username=${username}&password=${password}&url=${url}&catyId=${catyId}`;
+    console.log(proxyUrl);
+
+    var result = await axios.get(proxyUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     if (result.status == 200) {
       var json = JSON.stringify(result.data);

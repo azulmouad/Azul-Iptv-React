@@ -12,7 +12,6 @@ export const POST = async (request) => {
   const url = body.url;
 
   var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=login&username=${username}&password=${password}&url=${url}`;
-
   console.log(proxyUrl);
 
   //console.log(`${url}/player_api.php?username=${username}&password=${password}`);
