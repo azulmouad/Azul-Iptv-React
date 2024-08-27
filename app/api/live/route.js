@@ -8,12 +8,14 @@ export const POST = async (request) => {
     const password = body.password;
     const url = body.url;
 
-    console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_live_categories`
-    );
+    var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=getLiveCategories&username=${username}&password=${password}&url=${url}`;
+    console.log(proxyUrl);
+
+    // console.log(`${url}/player_api.php?password=${password}&username=${username}&action=get_live_categories`);
 
     var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_live_categories`,
+      //`${url}/player_api.php?password=${password}&username=${username}&action=get_live_categories`,
+      proxyUrl,
       {
         headers: {
           "Content-Type": "application/json",

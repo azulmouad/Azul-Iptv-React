@@ -9,12 +9,14 @@ export const POST = async (request) => {
     const url = body.url;
     const catyId = body.catyId;
 
-    console.log(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_live_streams&category_id=${catyId}`
-    );
+    var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=getLiveStreams&username=${username}&password=${password}&url=${url}&catyId=${catyId}`;
+    console.log(proxyUrl);
+
+    //console.log(`${url}/player_api.php?password=${password}&username=${username}&action=get_live_streams&category_id=${catyId}`);
 
     var result = await axios.get(
-      `${url}/player_api.php?password=${password}&username=${username}&action=get_live_streams&category_id=${catyId}`,
+      //`${url}/player_api.php?password=${password}&username=${username}&action=get_live_streams&category_id=${catyId}`,
+      proxyUrl,
       {
         headers: {
           "Content-Type": "application/json",

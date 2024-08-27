@@ -11,20 +11,19 @@ export const POST = async (request) => {
   const password = body.password;
   const url = body.url;
 
-  console.log(
-    `${url}/player_api.php?username=${username}&password=${password}`
-  );
+  var proxyUrl = `https://mouadzizi.com/Projects/applications/player-azul-proxy.php?type=login&username=${username}&password=${password}&url=${url}`;
+
+  console.log(proxyUrl);
+
+  //console.log(`${url}/player_api.php?username=${username}&password=${password}`);
 
   try {
-    var result = await axios.get(
-      `${url}/player_api.php?username=${username}&password=${password}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        timeout: 10000, // Set timeout to 10 seconds
-      }
-    );
+    var result = await axios.get(proxyUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      timeout: 10000, // Set timeout to 10 seconds
+    });
 
     if (result.status == 200) {
       console.log("Login API Success");
