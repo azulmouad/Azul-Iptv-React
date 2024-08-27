@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 
 const VideoPage = (props) => {
   var url = props.searchParams.videoUrl;
+  console.log("PLAY VIDEO:", url);
 
   return (
     <div

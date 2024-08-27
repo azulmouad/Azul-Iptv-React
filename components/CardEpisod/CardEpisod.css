@@ -5,6 +5,7 @@
     justify-content: center; 
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
     
     
 
@@ -22,6 +23,7 @@
     margin-top: 10px;
     font-size: 13px;
     color: rgb(213, 213, 213);
+    text-decoration: none;
     
 
 }
@@ -38,6 +40,9 @@
     border-radius: 5px;
 }
  
+.link-remove-line{
+    text-decoration: none;
+}
 
  
 

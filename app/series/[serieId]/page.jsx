@@ -15,6 +15,8 @@ import LoadingPage from "@components/Loading/Loading";
 import CardEpisod from "@components/CardEpisod/CardEpisod";
 
 const SerieDetails = (props) => {
+  const [userData, setUserData] = useState({});
+
   const serieId = props.params.serieId;
   var data = props.searchParams;
   const [details, setDetails] = useState();
@@ -30,6 +32,7 @@ const SerieDetails = (props) => {
   }, []);
 
   async function fetchMovieDetails(userData) {
+    setUserData(userData);
     const response = await fetch("/api/series/details", {
       method: "POST",
       headers: {
@@ -137,11 +140,21 @@ const SerieDetails = (props) => {
           </div>
           <div className="episode-box">
             {selectedEpisodes.map((episode) => (
-              <CardEpisod
-                key={episode.id}
-                episode={episode}
-                image={data.image}
-              />
+              <Link
+                href={{
+                  pathname: `/video`,
+                  query: {
+                    videoUrl: `http://${userData.server_info.url}:${userData.server_info.port}/series/${userData.user_info.username}/${userData.user_info.password}/${episode.id}.${episode.container_extension}`,
+                  },
+                }}
+                className="link-remove-line"
+              >
+                <CardEpisod
+                  key={episode.id}
+                  episode={episode}
+                  image={data.image}
+                />
+              </Link>
             ))}
           </div>
         </div>

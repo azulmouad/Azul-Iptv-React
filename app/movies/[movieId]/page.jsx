@@ -14,10 +14,7 @@ import LoadingPage from "@components/Loading/Loading";
 import Link from "next/link";
 
 const MovieDetails = (props) => {
-  //Video
-  function openVideo() {
-    console.log("PLAY VIDEO");
-  }
+  const [userData, setUserData] = useState({});
 
   const [details, setDetails] = useState();
   var movieId = props.params.movieId;
@@ -32,6 +29,7 @@ const MovieDetails = (props) => {
   }, []);
 
   async function fetchMovieDetails(userData) {
+    setUserData(userData);
     const response = await fetch("/api/movies/details", {
       method: "POST",
       headers: {
@@ -123,10 +121,10 @@ const MovieDetails = (props) => {
                   href={{
                     pathname: `/video`,
                     query: {
-                      videoUrl:
-                        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                      videoUrl: `http://${userData.server_info.url}:${userData.server_info.port}/movie/${userData.user_info.username}/${userData.user_info.password}/${movieId}.${details.movie_data.container_extension}`,
                     },
                   }}
+                  className="link-remove-line"
                 >
                   Watch Now
                 </Link>
